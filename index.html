@@ -3,14 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <link rel="icon" type="image/x-icon"href="icon.png">
     <title>Robotec</title>
 </head>
 <body>
-    <input type="text" id="input">
-    <input type="text" id="output">
-    <button onclick="convertToBinary()">Convert to Binary</button>
-    <button onclick="convertToString()">Convert to String</button>
+    <div style="text-align: center; height: auto; width: auto;">
+        <h1>convert To Binary format & again with words</h1>
+        <input type="text" id="input">
+        <input type="text" id="output">
+        <button onclick="convertToBinary()">Convert to Binary</button>
+        <button onclick="convertToString()">Convert to String</button>
+    </div>
+   
     <script>
         function convertToBinary() {
             const input = document.getElementById("input").value;
