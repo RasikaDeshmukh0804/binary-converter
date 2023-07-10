@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robotec</title>
+</head>
+<body>
+    <input type="text" id="input">
+    <input type="text" id="output">
+    <button onclick="convertToBinary()">Convert to Binary</button>
+    <button onclick="convertToString()">Convert to String</button>
+    <script>
+        function convertToBinary() {
+            const input = document.getElementById("input").value;
+            const output = document.getElementById("output");
+            let binary = '';
+
+            for (let i = 0; i < input.length; i++) {
+                let charCode = input.charCodeAt(i).toString(2);
+                binary += padLeft(charCode, 8); // Ensure 8-bit representation
+            }
+
+            output.value = binary;
+        }
+
+        function convertToString() {
+            const input = document.getElementById("input");
+            const output = document.getElementById("output").value;
+            let string = '';
+
+            for (let i = 0; i < output.length; i += 8) {
+                let binaryCode = output.substr(i, 8);
+                let charCode = parseInt(binaryCode, 2);
+                string += String.fromCharCode(charCode);
+            }
+
+            input.value = string;
+        }
+
+        // Helper function to pad left with zeros
+        function padLeft(str, length) {
+            return '0'.repeat(length - str.length) + str;
+        }
+    </script>
+</body>
+</html>
